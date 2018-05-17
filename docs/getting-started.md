@@ -173,3 +173,12 @@ $ git fetch react-starter-kit
 $ git merge react-starter-kit/master
 $ yarn install
 ```
+
+### In Webstorm's Run/Debug Configurations, create a "Node.js" configuration:
+Under the "Configuration" tab, set "build/server.js" as the JavaScript file. Set the project root directory as the working directory. Also check the "Single instance only" checkbox. (Some Webstorm versions have a bug that requires you to add "--expose-debug-as=v8debug" as a Node parameter, or else it starts whining about v8debug not being enabled.)
+
+Under the "Browser/Live Edit" tab, check the "After launch" checkbox, select which browser to use in the dropdown, check the "with JavaScript debugger" checkbox, and enter "http://localhost:3000" as the target URL. (Also check the "Single instance only" box on this tab too.)
+
+Run npm build
+
+Click debug on that configuration and it should stop on both server and client breakpoints.
